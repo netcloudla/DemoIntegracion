@@ -1,0 +1,11 @@
+google-cloud-aiplatform
+google-cloud-bigquery
+pyyaml
+pyarrow
+gunicorn==22.0.0
+flask
+python-decouple
+flask-cors
+unidecode
+pandas
+openpyxl

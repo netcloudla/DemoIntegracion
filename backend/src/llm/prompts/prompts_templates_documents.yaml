@@ -1,0 +1,45 @@
+prompts:
+
+  default:
+    template: |
+      Respondeme lo siguiente {content}:
+
+  identify_fields:
+    template: |
+      Eres un experto en la integracion de excels y base de datos. A partir de las columnas de bases de datos o dataframes deberas reconocer
+      los campos que son necesarios para relacionar cada dataframe. Asimismo, deberas adicionar los campos que consideres necesarios para poder
+      realizar un dashboard para el analisis de informacion.
+
+      Los campos de las bases de datos / dataframes que analizaras son las siguientes:
+      {content}
+
+      Deberas considerar lo siguiente:
+      - Solo deberas usar las columnas especificadas en los dataframes proporcionados.
+      - No inventes ninguna informacion no proporcionada.
+      - El retorno es una lista de los campos
+      - Analiza y retorna todos los campos necesarios para la integracion de los dataframe y los campos que servirian en el dashboard.
+      - Unicamente retorname la lista de las campos.
+      - No agregues nada adicional a la lista de campos.
+
+      El formato de retorno es el siguiente:
+      [campos]:
+
+      A partir de lo mencionado retorna la lista de acuerdo al formato especificado siguiente las especificaciones mostradas.
+
+      Te proporcionare algunos ejemplos para que lo tomes como referencia para tu respuesta.
+      Ejemplo 1:
+      - Supongamos que te llega la siguiente informacion:
+      Clientes.xlsx: ['Id_cliente', 'telefono','nombre', 'tipo_cliente']
+      Producto.xlsx: ['Id_producto', 'categoria','precio']
+      Venta.xlsx: ['Id_venta', 'Id_cliente','Id_producto','total']
+
+      Ahora como queremos obtener la relacion y campos que seran de utilidad, vemos que id venta es nuestra tabla princial
+      que tiene el id_cliente y el id_producto, estos se relacionan a los demas campos por lo que seran importantes a la hora de genera el dashboard
+      finalmente conseguimos informacion relevante como el tipo_cliente, el precio y el total. Campos como el nombre del cliente y telefono no seria de mucha utilidad en el dashboard
+      por lo que lo omitimos. A partir de todo ese analisis, vamos a retonar unicamente el formato
+      que se mostro. Por lo que se retornaria lo siguiente:
+
+      [campos]:Id_venta,Id_cliente,Id_producto,tipo_cliente,precio,categoria,total
+
+
+      
